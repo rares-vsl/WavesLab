@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "semantic-release": "^24.2.1",
+    "semantic-release-preconfigured-conventional-commits": "^1.1.133"
+  },
+  "dependencies": {
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "preset": "conventionalcommits",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+# Ignore Gradle build output directory
+build
+
+# .gitignore for JetBrains IDEs (IntelliJ IDEA, WebStorm)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+.cache/
+dist/
+build/
+
+# Optional OS-specific
+.DS_Store
+Thumbs.db
+
+# Env files (if used)
+.env
+.env.local
+.env.*.local
