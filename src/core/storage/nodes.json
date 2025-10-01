@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Living Room Light",
+    "id": "living-room-light",
+    "node_type": "ELECTRICITY",
+    "status": "OFF",
+    "provision_rate": 0.5,
+    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "assigned_user": "alice"
+  },
+  {
+    "name": "Kitchen Faucet",
+    "id": "kitchen-faucet",
+    "node_type": "WATER",
+    "status": "OFF",
+    "provision_rate": 2.0,
+    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "assigned_user": null
+  },
+  {
+    "name": "Gas Stove",
+    "id": "gas-stove",
+    "node_type": "GAS",
+    "status": "OFF",
+    "provision_rate": 1.5,
+    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "assigned_user": null
+  },
+  {
+    "name": "Bedroom Heater",
+    "id": "bedroom-heater",
+    "node_type": "ELECTRICITY",
+    "status": "OFF",
+    "provision_rate": 1.2,
+    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "assigned_user": null
+  }
+]
