@@ -1,4 +1,8 @@
-.idea
+# ignore all idea settings
+.idea/*
+*.iws
+*.iml
+*.ipr
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
