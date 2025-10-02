@@ -5,7 +5,10 @@
     "node_type": "ELECTRICITY",
     "status": "OFF",
     "provision_rate": 0.5,
-    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "endpoint": {
+      "url": "http://127.0.0.1:8001/monitoring",
+      "ID": ""
+    },
     "assigned_user": "alice"
   },
   {
@@ -14,7 +17,10 @@
     "node_type": "WATER",
     "status": "OFF",
     "provision_rate": 2.0,
-    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "endpoint": {
+      "url": "http://127.0.0.1:8001/monitoring",
+      "ID": ""
+    },
     "assigned_user": null
   },
   {
@@ -23,8 +29,11 @@
     "node_type": "GAS",
     "status": "OFF",
     "provision_rate": 1.5,
-    "endpoint_url": "http://127.0.0.1:8001/monitoring",
-    "assigned_user": null
+    "endpoint": {
+      "url": "http://127.0.0.1:8001/monitoring",
+      "ID": ""
+    },
+    "assigned_user": "alice"
   },
   {
     "name": "Bedroom Heater",
@@ -32,7 +41,10 @@
     "node_type": "ELECTRICITY",
     "status": "OFF",
     "provision_rate": 1.2,
-    "endpoint_url": "http://127.0.0.1:8001/monitoring",
+    "endpoint": {
+      "url": "http://127.0.0.1:8001/monitoring",
+      "ID": ""
+    },
     "assigned_user": null
   }
 ]

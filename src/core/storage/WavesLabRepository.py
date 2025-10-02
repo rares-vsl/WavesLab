@@ -3,6 +3,7 @@ import logging
 import json
 from pathlib import Path
 
+from core.model.Endpoint import Endpoint
 from core.model.NodeStatus import NodeStatus
 from core.model.VirtualUser import VirtualUser
 from core.model.WaveNode import WaveNode
@@ -75,15 +76,8 @@ class WavesLabRepository:
             nodes_data = self._read_json(self._nodes_file)
             nodes: Dict[str, WaveNode] = {}
             for node_dict in nodes_data:
-                # Normalize nullable endpoint_url
-                if node_dict.get("endpoint_url") is None:
-                    node_dict["endpoint_url"] = ""
-
-                # Normalize enums to lowercase strings if present
-                if isinstance(node_dict.get("status"), str):
-                    node_dict["status"] = node_dict["status"].lower()
-                if isinstance(node_dict.get("node_type"), str):
-                    node_dict["node_type"] = node_dict["node_type"].lower()
+                node_dict["status"] = node_dict["status"].lower()
+                node_dict["node_type"] = node_dict["node_type"].lower()
 
                 node = WaveNode(**node_dict)
                 nodes[node.id] = node
@@ -114,7 +108,7 @@ class WavesLabRepository:
                         'node_type': node.node_type.name,
                         'status': node.status.name,
                         'provision_rate': node.provision_rate,
-                        'endpoint_url': node.endpoint_url,
+                        'endpoint': node.endpoint,
                         'assigned_user': node.assigned_user
                     }
                 )
@@ -148,17 +142,17 @@ class WavesLabRepository:
                     return node
             return None
 
-    def update_node_endpoint(self, node_id: str, endpoint_url: str) -> Optional[WaveNode]:
+    def update_node_endpoint(self, node_id: str, endpoint_url: str, endpoint_id: str) -> Optional[WaveNode]:
         """Update a node's endpoint URL."""
         with self._lock:
             nodes = self._load_nodes()
             node = nodes.get(node_id)
             if not node:
                 return None
-            node.endpoint_url = endpoint_url
+            node.endpoint = Endpoint(url=endpoint_url, ID=endpoint_id)
             nodes[node_id] = node
             self._save_nodes(nodes)
-            logger.info("Updated endpoint for node %s to %s", node_id, endpoint_url)
+            logger.info("Updated endpoint for node %s to (%s, %s)", node_id, endpoint_url, endpoint_id)
             return node
 
     def start_node(self, node_id: str, user_name: Optional[str] = None) -> tuple[bool, str]:

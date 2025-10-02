@@ -101,7 +101,7 @@ class WaveLabAPI:
                 raise HTTPException(status_code=404, detail=f"WaveNode with ID '{slug}' not found")
 
             # Update the endpoint
-            updated_node = self.repo.update_node_endpoint(slug, update.endpoint_url)
+            updated_node = self.repo.update_node_endpoint(slug, update.endpoint_url, update.endpoint_id)
 
             if not updated_node:
                 logger.error(f"Failed to update node '{slug}'")

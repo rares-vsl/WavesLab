@@ -65,7 +65,7 @@ class SimulationManager:
         tasks = []
 
         for node in nodes:
-            if node.endpoint_url:
+            if node.endpoint.url:
                 task = asyncio.create_task(self._send_node_request(node))
                 tasks.append(task)
             else:
@@ -97,25 +97,25 @@ class SimulationManager:
             request_data = NodeRequest(
                 provision_rate=node.provision_rate,
                 username=node.assigned_user,
-                node_name=node.name,
+                node_name=node.endpoint.ID,
             )
 
             # Send POST request
             response = await self.client.post(
-                node.endpoint_url,
+                node.endpoint.url,
                 json=request_data.model_dump(),
                 headers={"Content-Type": "application/json"}
             )
 
             if response.status_code == 200:
-                logger.info(f"Request sent successfully for node '{node.name}' to {node.endpoint_url}")
+                logger.info(f"Request sent successfully for node '{node.name}' to {node.endpoint.url}")
                 return True
             else:
                 logger.info(f"Request failed for node '{node.name}': HTTP {response.status_code}")
                 return False
 
         except httpx.TimeoutException:
-            logger.info(f"Request timeout for node '{node.name}' to {node.endpoint_url}")
+            logger.info(f"Request timeout for node '{node.name}' to {node.endpoint}")
             return False
         except httpx.RequestError as e:
             logger.info(f"Network error for node '{node.name}': {e}")
