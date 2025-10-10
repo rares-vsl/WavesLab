@@ -108,7 +108,7 @@ class WavesLabRepository:
                         'node_type': node.node_type.name,
                         'status': node.status.name,
                         'provision_rate': node.provision_rate,
-                        'endpoint': node.endpoint,
+                        'endpoint': node.endpoint.model_dump(),
                         'assigned_user': node.assigned_user
                     }
                 )
