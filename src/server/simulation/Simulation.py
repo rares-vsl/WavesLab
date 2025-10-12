@@ -16,6 +16,7 @@ class SimulationManager:
         self.client = None
         self.running = None
         self.loop = None
+        self._simulation_interval = 30
 
     async def start(self):
         self.client = httpx.AsyncClient(timeout=10.0)
@@ -53,7 +54,7 @@ class SimulationManager:
                 else:
                     logger.info("No active nodes to process")
 
-                await asyncio.sleep(5)
+                await asyncio.sleep(self._simulation_interval)
             except asyncio.CancelledError:
                 logger.info("Request loop cancelled")
                 break
