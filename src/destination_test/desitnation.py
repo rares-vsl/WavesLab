@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 import logging
+from fastapi import Request
 
 from server.web_api.NodeRequest import NodeRequest
 
@@ -14,9 +15,10 @@ app = FastAPI()
 
 
 @app.post("/monitoring")
-async def test(req: NodeRequest):
+async def test(req: NodeRequest, request: Request):
+    smart_furniture_id = request.query_params.get("smart_furniture_id")
     by_user = f"by {req.username}" if req.username is not None else ""
-    print(f"{req.node_name} consumes: {req.provision_rate} {by_user}")
+    print(f"{smart_furniture_id} consumes: {req.provision_rate} {by_user}")
 
 
 if __name__ == "__main__":
