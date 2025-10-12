@@ -66,7 +66,7 @@ class SimulationManager:
         tasks = []
 
         for node in nodes:
-            if node.endpoint.url:
+            if node.endpoint:
                 task = asyncio.create_task(self._send_node_request(node))
                 tasks.append(task)
             else:
@@ -98,18 +98,17 @@ class SimulationManager:
             request_data = NodeRequest(
                 provision_rate=node.provision_rate,
                 username=node.assigned_user,
-                node_name=node.endpoint.ID,
             )
 
             # Send POST request
             response = await self.client.post(
-                node.endpoint.url,
+                node.endpoint,
                 json=request_data.model_dump(),
                 headers={"Content-Type": "application/json"}
             )
 
             if response.status_code == 200:
-                logger.info(f"Request sent successfully for node '{node.name}' to {node.endpoint.url}")
+                logger.info(f"Request sent successfully for node '{node.name}' to {node.endpoint}")
                 return True
             else:
                 logger.info(f"Request failed for node '{node.name}': HTTP {response.status_code}")
