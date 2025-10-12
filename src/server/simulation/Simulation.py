@@ -96,7 +96,7 @@ class SimulationManager:
         try:
             # Create request payload
             request_data = NodeRequest(
-                provision_rate=node.provision_rate,
+                real_time_consumption=node.real_time_consumption,
                 username=node.assigned_user,
             )
 

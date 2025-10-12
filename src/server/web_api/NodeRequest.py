@@ -3,5 +3,5 @@ from pydantic import BaseModel, Field
 
 class NodeRequest(BaseModel):
     """Model for HTTP requests sent by active nodes."""
-    provision_rate: float = Field(..., description="Node's provision rate")
+    real_time_consumption: float = Field(..., description="Node's real time consumption")
     username: Optional[str] = Field(None, description="Associated user's username")

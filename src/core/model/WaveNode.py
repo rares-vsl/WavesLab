@@ -11,10 +11,10 @@ class WaveNode(BaseModel):
     """Model representing a WaveNode - a smart furniture connection."""
     id: str = Field(..., description="Slugified version of the name")
     name: str = Field(..., description="Unique human-readable identifier")
-    node_type: NodeType = Field(..., description="Type of utility delivered")
+    node_type: NodeType = Field(..., description="Type of utility consumed")
     endpoint: str = Field(None, description="Destination URL for data transmission")
     status: NodeStatus = Field(default=NodeStatus.OFF, description="Whether the node is active")
-    provision_rate: float = Field(..., ge=0, description="Amount of utility delivered")
+    real_time_consumption: float = Field(..., ge=0, description="Amount of utility consumed")
     assigned_user: Optional[str] = Field(None, description="Username of associated user")
 
     @field_validator('id', mode='before')

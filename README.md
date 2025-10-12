@@ -16,7 +16,7 @@ A WaveNode has the following attributes:
 * **node_type** – one of three types: `electricity`, `water`, or `gas`.
 * **endpoint_url** – the destination URL where data is transmitted.
 * **status** – indicates whether the node is active (`on`) or inactive (`off`).
-* **provision_rate** – numeric value representing the amount of utility delivered.
+* **real_time_consumption** – numeric value representing the amount of utility consumed.
 
 ---
 
@@ -60,7 +60,7 @@ The environment includes a server that exposes a simple REST API:
 
 * Every **5 seconds**, each active node automatically sends an HTTP `POST` request to its `endpoint_url`.
 * The request payload includes:
-    * the node’s `provision_rate`, and
+    * the node’s `real_time_consumption`, and
     * the associated user’s `username` (if one is assigned).
 * For simplicity, the system uses a **single loop** to trigger these requests across all active nodes.
 

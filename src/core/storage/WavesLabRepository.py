@@ -113,7 +113,7 @@ class WavesLabRepository:
                         'id': node.id,
                         'node_type': node.node_type.name,
                         'status': node.status.name,
-                        'provision_rate': node.provision_rate,
+                        'real_time_consumption': node.real_time_consumption,
                         'endpoint': node.endpoint,
                         'assigned_user': node.assigned_user
                     }
