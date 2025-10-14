@@ -96,14 +96,14 @@ class SimulationManager:
         try:
             # Create request payload
             request_data = NodeRequest(
-                real_time_consumption=node.real_time_consumption,
+                realTimeConsumption=node.real_time_consumption,
                 username=node.assigned_user,
             )
 
             # Send POST request
             response = await self.client.post(
                 node.endpoint,
-                json=request_data.model_dump(),
+                json=request_data.model_dump(mode='json'),
                 headers={"Content-Type": "application/json"}
             )
 

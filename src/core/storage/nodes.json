@@ -3,48 +3,36 @@
     "name": "Living Room Light",
     "id": "living-room-light",
     "node_type": "ELECTRICITY",
-    "status": "OFF",
-    "provision_rate": 0.5,
-    "endpoint": {
-      "url": "http://127.0.0.1:8001/monitoring",
-      "ID": ""
-    },
-    "assigned_user": "alice"
+    "status": "ON",
+    "real_time_consumption": 32.2,
+    "endpoint": "http://localhost:3003/api/internal/measurements?smart_furniture_id=45fbede3-e2bd-47e2-a62d-5bfc666f01dd",
+    "assigned_user": null
   },
   {
     "name": "Kitchen Faucet",
     "id": "kitchen-faucet",
     "node_type": "WATER",
     "status": "OFF",
-    "provision_rate": 2.0,
-    "endpoint": {
-      "url": "http://127.0.0.1:8001/monitoring",
-      "ID": ""
-    },
+    "real_time_consumption": 17.5,
+    "endpoint": "http://localhost:3003/api/internal/measurements?smart_furniture_id=98db4b85-a1f2-4693-aa3c-c09e9006e4e5",
     "assigned_user": null
   },
   {
     "name": "Gas Stove",
     "id": "gas-stove",
     "node_type": "GAS",
-    "status": "OFF",
-    "provision_rate": 1.5,
-    "endpoint": {
-      "url": "http://127.0.0.1:8001/monitoring",
-      "ID": ""
-    },
-    "assigned_user": "alice"
+    "status": "ON",
+    "real_time_consumption": 16.2,
+    "endpoint": "http://localhost:3003/api/internal/measurements?smart_furniture_id=0367f6e7-addf-4a33-9e61-1e1d537e688f",
+    "assigned_user": null
   },
   {
     "name": "Bedroom Heater",
     "id": "bedroom-heater",
     "node_type": "ELECTRICITY",
-    "status": "OFF",
-    "provision_rate": 1.2,
-    "endpoint": {
-      "url": "http://127.0.0.1:8001/monitoring",
-      "ID": ""
-    },
+    "status": "ON",
+    "real_time_consumption": 10.7,
+    "endpoint": "http://localhost:3003/api/internal/measurements?smart_furniture_id=bd151cea-41bc-4a94-b2cd-1afefcf7b178",
     "assigned_user": null
   }
 ]
